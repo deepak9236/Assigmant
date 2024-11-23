@@ -1,7 +1,7 @@
 # Frontend Internship Project
 
 ## 🌐 Live Demo
-[View Live Demo](https://mearninternship-ca8q46f7f-deepak8321s-projects.vercel.app/)
+[View Live Demo](https://mearninternship.vercel.app/)
 
 ## 📁 Repository
 [GitHub Repository](https://github.com/deepak9236/Assigmant.git)

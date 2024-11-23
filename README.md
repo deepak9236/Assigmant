@@ -1,70 +1,139 @@
-# Getting Started with Create React App
+# Frontend Internship Project
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🌐 Live Demo
+[View Live Demo](https://mearninternship-ca8q46f7f-deepak8321s-projects.vercel.app/)
 
-## Available Scripts
+## 📁 Repository
+[GitHub Repository](https://github.com/deepak9236/Assigmant.git)
 
-In the project directory, you can run:
+## ⚙️ Setup Instructions
 
-### `npm start`
+### Installation Steps
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+1. Clone the repository
+```bash
+git clone https://github.com/deepak9236/Assigmant.git
+cd Assigmant
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+2. Install dependencies
+```bash
+npm install
+```
 
-### `npm test`
+3. Create a `.env` file in the root directory and add the following configuration:
+```env
+REACT_APP_API_KEY=
+REACT_APP_AUTH_DOMAIN=
+REACT_APP_PROJECT_ID=
+REACT_APP_STORAGE_BUCKET=
+REACT_APP_MESSAGING_SENDER_ID=
+REACT_APP_APP_ID=
+REACT_APP_MEASUREMENT_ID=
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+4. Start the development server
+```bash
+npm run dev
+```
 
-### `npm run build`
+The application will be available at `http://localhost:3000`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📦 External Packages
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Core Dependencies
+- `react`: ^18.2.0
+- `react-dom`: ^18.2.0
+- `react-router-dom`: ^6.22.3
+- `react-scripts`: 5.0.1
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Firebase Integration
+- `firebase`: ^10.8.1
+- `firebase-tools`: ^13.4.1
 
-### `npm run eject`
+### UI Components & Styling
+- `@headlessui/react`: ^1.7.18
+- `@heroicons/react`: ^2.1.1
+- `tailwindcss`: ^3.4.1
+- `autoprefixer`: ^10.4.18
+- `postcss`: ^8.4.35
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Development Tools
+- `@types/react`: ^18.2.64
+- `@types/react-dom`: ^18.2.21
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## 🚀 Deployment Process
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Vercel Deployment
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Sign up for a Vercel account at [vercel.com](https://vercel.com)
 
-## Learn More
+2. Install Vercel CLI
+```bash
+npm install -g vercel
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+3. Login to Vercel
+```bash
+vercel login
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+4. Deploy the application
+```bash
+vercel
+```
 
-### Code Splitting
+5. For production deployment
+```bash
+vercel --prod
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Environment Variables Setup on Vercel
 
-### Analyzing the Bundle Size
+1. Go to your project settings in Vercel
+2. Navigate to the Environment Variables section
+3. Add the following environment variables:
+   - `REACT_APP_API_KEY`
+   - `REACT_APP_AUTH_DOMAIN`
+   - `REACT_APP_PROJECT_ID`
+   - `REACT_APP_STORAGE_BUCKET`
+   - `REACT_APP_MESSAGING_SENDER_ID`
+   - `REACT_APP_APP_ID`
+   - `REACT_APP_MEASUREMENT_ID`
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+## 🔒 Firebase Setup
 
-### Making a Progressive Web App
+1. Create a new Firebase project at [Firebase Console](https://console.firebase.google.com)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+2. Enable Authentication and select Google Sign-in method
 
-### Advanced Configuration
+3. Create a web app in your Firebase project
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+4. Copy the configuration values to your `.env` file
 
-### Deployment
+5. Initialize Firebase in your application:
+```javascript
+// src/firebase/config.js
+import { initializeApp } from 'firebase/app';
+import { getAuth } from 'firebase/auth';
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+const firebaseConfig = {
+  apiKey: process.env.REACT_APP_API_KEY,
+  authDomain: process.env.REACT_APP_AUTH_DOMAIN,
+  projectId: process.env.REACT_APP_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_APP_ID,
+  measurementId: process.env.REACT_APP_MEASUREMENT_ID
+};
 
-### `npm run build` fails to minify
+const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📝 Development Notes
+- The project uses React 18 with the latest features
+- Routing is handled by React Router v6
+- Authentication is managed through Firebase
+- Styling is done using Tailwind CSS
+- The application is fully responsive
